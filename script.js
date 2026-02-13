@@ -812,8 +812,8 @@ class BlockchainNetwork {
         this.container = document.getElementById('blockchainNetwork');
         this.nodes = [];
         this.connections = [];
-        this.nodeCount = 20;
-        this.maxDistance = 250;
+        this.nodeCount = 25;
+        this.maxDistance = 300;
         
         console.log('Blockchain Network constructor called, container:', this.container);
         
@@ -885,8 +885,8 @@ class BlockchainNetwork {
     animate() {
         setInterval(() => {
             this.nodes.forEach(node => {
-                const dx = (Math.random() - 0.5) * 2;
-                const dy = (Math.random() - 0.5) * 2;
+                const dx = (Math.random() - 0.5) * 3;
+                const dy = (Math.random() - 0.5) * 3;
                 
                 node.x += dx;
                 node.y += dy;
@@ -905,7 +905,7 @@ class BlockchainNetwork {
             this.connections.forEach(connection => connection.remove());
             this.connections = [];
             this.createConnections();
-        }, 3000);
+        }, 2000);
     }
 }
 
