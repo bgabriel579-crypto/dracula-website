@@ -1,0 +1,282 @@
+/* Banner Section Styles */
+.banner-section {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    animation: banner-zoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes banner-zoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(139, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(139, 0, 0, 0.7) 100%
+    );
+    z-index: 1;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #ffffff;
+    padding: 2rem;
+    max-width: 800px;
+    animation: banner-fade-in 2s ease-out;
+}
+
+@keyframes banner-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.banner-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 20px rgba(139, 0, 0, 0.8),
+        0 0 40px rgba(139, 0, 0, 0.6),
+        2px 2px 4px rgba(0, 0, 0, 0.8);
+    animation: title-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes title-glow {
+    from {
+        text-shadow: 
+            0 0 20px rgba(139, 0, 0, 0.8),
+            0 0 40px rgba(139, 0, 0, 0.6),
+            2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+    to {
+        text-shadow: 
+            0 0 30px rgba(139, 0, 0, 1),
+            0 0 60px rgba(139, 0, 0, 0.8),
+            2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+}
+
+.banner-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #cccccc;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.banner-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.banner-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.banner-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-btn-primary {
+    background: linear-gradient(135deg, #8b0000, #ff0000);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+}
+
+.banner-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(139, 0, 0, 0.6);
+}
+
+.banner-btn-secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #8b0000;
+}
+
+.banner-btn-secondary:hover {
+    background: #8b0000;
+    transform: translateY(-3px);
+}
+
+/* Floating elements around banner */
+.banner-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.banner-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #8b0000, #ff0000);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.8);
+    animation: particle-float 15s linear infinite;
+}
+
+@keyframes particle-float {
+    from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .banner-section {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    .banner-title {
+        font-size: 2.5rem;
+    }
+    
+    .banner-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .banner-description {
+        font-size: 1rem;
+    }
+    
+    .banner-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .banner-btn {
+        width: 200px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-section {
+        height: 40vh;
+        min-height: 250px;
+    }
+    
+    .banner-title {
+        font-size: 2rem;
+    }
+    
+    .banner-subtitle {
+        font-size: 1rem;
+    }
+    
+    .banner-content {
+        padding: 1rem;
+    }
+}
+
+/* Parallax effect for banner */
+.banner-parallax {
+    transition: transform 0.5s ease-out;
+}
+
+/* Blockchain effects integration with banner */
+.banner-blockchain-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.05) 0%, transparent 70%);
+    animation: blockchain-pulse 4s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+@keyframes blockchain-pulse {
+    from {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
